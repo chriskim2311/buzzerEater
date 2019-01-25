@@ -445,7 +445,7 @@ function getNBAData() {
         $.ajax(nbaData).done(function (response) {
             var nbaData = response.data;
             updateNBAScores(nbaData);
-            // getNBADataInterval();
+            getNBADataInterval();
 
         })
 
@@ -463,7 +463,7 @@ function getNBAData() {
         $.ajax(nbaData).done(function (response) {
             var nbaData = response.data;
             updateNBAScores(nbaData);
-            // getNBADataInterval();
+            getNBADataInterval();
 
         })
 
@@ -481,7 +481,7 @@ function getNBAData() {
         $.ajax(nbaData).done(function (response) {
             var nbaData = response.data;
             updateNBAScores(nbaData);
-            // getNBADataInterval();
+            getNBADataInterval();
 
         })
     }
