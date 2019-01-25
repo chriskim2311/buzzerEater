@@ -114,47 +114,33 @@ function initMap(restArray) {
  */
 
 function landing() {
-    // var map = new google.maps.Map(document.getElementById('map'), {
-    //     zoom: 10,
-    //     center: {lat: 33.652775, lng: -117.750732}
-    // });
-    // var geocoder = new google.maps.Geocoder();
-
     document.getElementById('search-btn').addEventListener('click', function (e) {
-        // searchDisplay()
         e.preventDefault();
         document.getElementById("loaderBackground").style.display = "block";
-
         search_result();
         $("#address").val('');
         loader();
-        // openPage();
+
     });
+
     document.getElementById('nba').addEventListener('click', function () {
-        // search_result(geocoder, map);
-        // $("#address").val('');
         openPageNBA();
     });
+
     document.getElementById('nba1').addEventListener('click', function () {
         if ($("#pageTwo").css('display') == 'none') {
             $(".navbar-collapse").removeClass('in');
             openPageNBA1();
         }
-        // search_result(geocoder, map);
-        // $("#address").val('');
-        // openPageNBA1();
-
         else {
             return
         }
     });
+
     document.getElementById('eats').addEventListener('click', function () {
         openPageEats();
-
-        // search_result(geocoder, map);
-        // $("#address").val('');
-        // openPageEats();
     });
+
     document.getElementById('eats1').addEventListener('click', function () {
         if ($("#pageThree").css('display') == 'none') {
             $(".navbar-collapse").removeClass('in');
@@ -163,23 +149,13 @@ function landing() {
         else {
             return
         }
-        // search_result(geocoder, map);
-        // $("#address").val('');
     });
-    // document.getElementById('home1').addEventListener('click', function() {
-    //     // search_result(geocoder, map);
-    //     // $("#address").val('');
-    //     openPageHome1();
-    // });
-    document.getElementById('home2').addEventListener('click', function () {
-        // search_result(geocoder, map);
-        // $("#address").val('');
 
+    document.getElementById('home2').addEventListener('click', function () {
         if ($("#pageTwo").css('display') == 'none') {
             $(".navbar-collapse").removeClass('in');
             openPageHome2();
         }
-        
         if ($("#pageThree").css('display') == 'none') {
             $(".navbar-collapse").removeClass('in');
             openPageHome3();
@@ -201,10 +177,6 @@ function landing() {
 
     });
 
-
-
-
-
     var input = document.getElementById('address');
     var options = {
         types: ['(cities)'],
@@ -224,21 +196,11 @@ function landing() {
 
 
 function search_result() {
-
-
     var geocoder = new google.maps.Geocoder();
-
     var address = $("#address").val();
+
     geocoder.geocode({ 'address': address }, function (results, status) {
         if (status === 'OK') {
-           
-            // console.log("RESULTSSS", results)
-            // resultsMap.setCenter(results[0].geometry.location);
-            // var marker = new google.maps.Marker({
-            //     map: resultsMap,
-            //     position: results[0].geometry.location,
-            // });
-            // var loc = resultsMap.getCenter();
             var loc = results[0].geometry.location
             numCoord = {
                 lat: loc.lat(),
@@ -355,8 +317,6 @@ function getRestaurantInformation() {
  */
 function renderRestaurants(restObj) {
     var restaurantContainer = $("<div>").addClass("mainRestaurantContainer");
-    // var imageContainer = $("<div>").addClass("image");
-    // var image = $("<img>").addClass("appImage").attr("src", "images/basketball_beer.jpg");
     var infoContainer = $("<a>", {
         class: "info",
         href: restObj.url,
@@ -370,7 +330,6 @@ function renderRestaurants(restObj) {
     var voteContainer = $("<div>").addClass("votes").text(restObj.votes + " reviews");
     infoContainer.append(nameContainer, cityContainer, addressContainer);
     rateContainer.append(ratingContainer, voteContainer);
-    // imageContainer.append(image);
     restaurantContainer.append(infoContainer, rateContainer);
     $(".restaurantSection").append(restaurantContainer);
 }
@@ -381,7 +340,6 @@ function renderRestaurants(restObj) {
  * @param object of restaurant info
  */
 function createRestaurantObj(apiObj) {
-    // console.log(apiObj)
     $(".restaurantSection").empty();
     var brewery = apiObj.restaurants;
     var restaurantsArray = [];
@@ -405,14 +363,6 @@ function createRestaurantObj(apiObj) {
         restaurantObj.city = restCity;
         restaurantObj.votes = restRateCount;
         restaurantObj.url = restUrl;
-
-
-
-
-
-
-
-
 
         renderRestaurants(restaurantObj);
         restaurantsArray.push(restaurantObj);
@@ -471,9 +421,6 @@ function getNBAData() {
     else {
         var date = `${year}0${month}${day}`
         var nbaData = {
-            // "async": true,
-            // "crossDomain": true,
-            // 'dataType': 'json',
             "url": `https://place.kim-chris.com/nba/${date}`,
             "method": "GET",
         };
@@ -539,9 +486,6 @@ function getNBADataInterval() {
         else {
             var date = `${year}${month}${day}`
             var nbaData = {
-                // "async": true,
-                // "crossDomain": true,
-                // 'dataType': 'json',
                 "url": `https://place.kim-chris.com/nba/${date}`,
                 "method": "GET",
             };
@@ -563,24 +507,17 @@ function getNBADataInterval() {
  * @returns teamOne, teamTwo, gameInfo
  */
 function updateNBAScores(nbaData) {
-    // console.log(nbaData)
     $("#gameSection").empty();
-
 
     var numberGames = nbaData.numGames;
     for (var i = 0; i < numberGames; i++) {
         var teamName1 = nbaData.games[i].hTeam.triCode;
         var teamName2 = nbaData.games[i].vTeam.triCode;
-
         var teamScore1 = nbaData.games[i].hTeam.score;
         var teamScore2 = nbaData.games[i].vTeam.score;
-
         var teamImage1 = logos[teamName1];
         var teamImage2 = logos[teamName2];
-
         var gameFinal = nbaData.games[i].isGameActivated;
-
-
         var quarter = nbaData.games[i].period.current;
         var clock = nbaData.games[i].clock;
         var startTime = nbaData.games[i].startTimeEastern;
@@ -620,11 +557,7 @@ function formatTeamInfo(tricode, score, teamImg) {
  * @returns
  */
 function generateScoreboard(teamOne, teamTwo, gameInfo) {
-
-
     var scoreboard = $("<div>").addClass("scoreboard");
-
-
     var homeTeam = $("<div>").addClass("team team-a");
     var homeTeamLogo1 = $("<div>").addClass("team-logo");
     var logo1 = $("<img>").attr("src", teamOne.teamImg).css("width", "50px").css("height", "50px");
@@ -711,7 +644,6 @@ function generateScoreboard(teamOne, teamTwo, gameInfo) {
         timerContainer.append(quarter3, endTime);
     }
 
-
     timer.append(timerContainer);
     scoreboard.append(homeTeam, awayTeam, timer);
     $(".gameSection").append(scoreboard);
@@ -728,62 +660,38 @@ function generateScoreboard(teamOne, teamTwo, gameInfo) {
  * @returns
  */
 
-
-
 function openPageNBA() {
     $(".navbar").toggle(".display");
     $(".pageOne").toggle(".display");
     $(".pageTwo").toggle(".display");
-    //   $(".pageThree").toggle(".display");
 }
 function openPageNBA1() {
-    // $(".pageOne").toggle(".display");
     $(".pageTwo").toggle(".display");
     $(".pageThree").toggle(".display");
 }
 function openPageEats() {
     $(".navbar").toggle(".display");
     $(".pageOne").toggle(".display");
-    // $(".pageTwo").toggle(".display");
     $(".pageThree").toggle(".display");
 }
 function openPageEats1() {
-    // $(".pageOne").toggle(".display");
     $(".pageTwo").toggle(".display");
     $(".pageThree").toggle(".display");
 
 }
-//   function openPageHome1() {
-//     $(".navbar").toggle(".display");
-//     $(".pageOne").toggle(".display");
-//     $(".pageTwo").toggle(".display");
-//     // $(".pageThree").toggle(".display");
-//   }
+
 function openPageHome2() {
     $(".navbar").toggle(".display");
     $(".pageOne").toggle(".display");
-    // $(".pageTwo").toggle(".display");
+
     $(".pageThree").toggle(".display");
 }
 function openPageHome3() {
     $(".navbar").toggle(".display");
     $(".pageOne").toggle(".display");
     $(".pageTwo").toggle(".display");
-    // $(".pageThree").toggle(".display");
+
 }
-
-//   function searchDisplay() {
-//       $(".restaurants").toggle(".display");
-//   }
-
-// function playIntro() {
-//     var audio = new Audio('sounds/buzzer-eater.mp3');
-//     audio.play();
-// }
-
-// function clickHandler(){
-//     $(".reset").click(openPage);
-// }
 
 
 /***************************************************************************************************
