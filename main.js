@@ -302,7 +302,24 @@ function getRestaurantInformation() {
 
         },
         success: function (response) {
-            createRestaurantObj(response);
+            if(response.restaurants.length === 0 ){
+                emptyRestaurant()
+                
+            }else{
+
+                if($(".emptyRestaurantContainer").css('display') == 'block'){
+                    $(".emptyRestaurantContainer").toggle(".display");
+                    $(".map").toggle(".display");
+                    $(".restaurants").toggle(".display");
+                    createRestaurantObj(response);
+                }else if($(".map").css('display') == 'block'){
+                    createRestaurantObj(response);
+                }else{
+                    $(".map").toggle(".display");
+                    $(".restaurants").toggle(".display");
+                    createRestaurantObj(response);
+                }
+            }   
         },
         error: function (err) {
 
@@ -364,11 +381,34 @@ function createRestaurantObj(apiObj) {
         restaurantObj.votes = restRateCount;
         restaurantObj.url = restUrl;
 
-        renderRestaurants(restaurantObj);
-        restaurantsArray.push(restaurantObj);
+
+
+            renderRestaurants(restaurantObj);
+            restaurantsArray.push(restaurantObj);
+        
     }
+
+
     initMap(restaurantsArray);
 }
+
+/***************************************************************************************************
+ * FallbackScreen -
+ * @param: none
+ * @returns: object response from NBA API
+ */
+
+ function emptyRestaurant(){
+    if($(".emptyRestaurantContainer").css('display') == 'block'){
+        return
+    }else if($(".map").css('display') == 'block'){
+        $(".emptyRestaurantContainer").toggle(".display");
+        $(".map").toggle(".display");
+        $(".restaurants").toggle(".display");
+    }else {
+        $(".emptyRestaurantContainer").toggle(".display");
+    }
+ }
 
 /***************************************************************************************************
  * getNBAData -
@@ -666,6 +706,13 @@ function openPageNBA() {
     $(".pageTwo").toggle(".display");
 }
 function openPageNBA1() {
+
+    if($(".emptyRestaurantContainer").css('display') == 'block'){
+        $(".emptyRestaurantContainer").toggle(".display");
+    }
+    $("#map").empty();
+    $(".restaurantSection").empty();
+
     $(".pageTwo").toggle(".display");
     $(".pageThree").toggle(".display");
 }
@@ -677,13 +724,16 @@ function openPageEats() {
 function openPageEats1() {
     $(".pageTwo").toggle(".display");
     $(".pageThree").toggle(".display");
-
 }
 
 function openPageHome2() {
+    if($(".emptyRestaurantContainer").css('display') == 'block'){
+        $(".emptyRestaurantContainer").toggle(".display");
+    }
+    $("#map").empty();
+    $(".restaurantSection").empty();
     $(".navbar").toggle(".display");
     $(".pageOne").toggle(".display");
-
     $(".pageThree").toggle(".display");
 }
 function openPageHome3() {

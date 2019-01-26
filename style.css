@@ -144,6 +144,10 @@ body {
 
 .map {
     height: 45%;
+    /* width:40%;
+    padding: 1%; */
+    /* border: 5px solid white; */
+    display:none;
 }
 
 .mapSection {
@@ -157,10 +161,11 @@ body {
 .restaurants {
     height: 48%;
     display: inline-block;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
     margin-top: 5%;
-    padding: 0 1%
+    padding: 0 1%;
+    display: none;
 }
 
 .restaurants:hover {
@@ -174,6 +179,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     margin-left: 2px;
+
 }
 
 
@@ -195,6 +201,19 @@ body {
     background-color: rgb(250, 228, 203);
     box-shadow:0 0px 0px white, 0 0 11px white;
 }
+
+.emptyRestaurantContainer {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    display:none;
+}
+
+.emptyRestaurantContainer p{
+    margin: auto;    
+}
+
+
 
 .image {
     display: none;
@@ -308,7 +327,7 @@ body {
     position:fixed;
     width:100%;
     left:0;right:0;top:0;bottom:0;
-    background-color: rgba(0, 0 ,0 ,0.8);
+    background-color: rgba(0, 0 ,0 ,1);
     z-index:10;
     display:none;
 }
@@ -822,6 +841,7 @@ a {
     left: 2px;
     -webkit-animation: mousse_interieur 5s 1;
 }
+
 
 /* ANIMATIONS */
 @-webkit-keyframes beer {
@@ -1785,6 +1805,10 @@ a {
         height: calc(100vh - 60px);
     }
 
+    .emptyRestaurantContainer {
+        font-size: 22px;
+    }
+
     .addressSection {
         font-size: 22px;
     }
@@ -1866,6 +1890,16 @@ a {
     .pageThree {
         height: calc(100vh - 70px);
     }
+
+    .emptyRestaurantContainer {
+        font-size: 35px;
+    }
+
+    .emptyRestaurantContainer p{
+        margin: auto;    
+        width: 80%;
+    }
+    
 
     .eats-container {
         margin: 9% 5% 0 5%;
@@ -1957,6 +1991,10 @@ a {
         height: calc(100vh - 81px);
     }
 
+    .eats-container {
+        margin: 8% 5% 0 5%;
+    }
+
     .addressSection {
         font-size: 40px;
     }
@@ -2031,6 +2069,14 @@ a {
         height: calc(100vh - 81px);
     }
 
+    .eats-container {
+        margin: 5% 5% 0 5%;
+    }
+    
+    .emptyRestaurantContainer {
+        margin: 0 auto;    
+    }
+    
     .addressSection {
         margin-top: 8%;
         font-size: 48px;
@@ -2247,6 +2293,10 @@ a {
         font-size: 18px;
     }
 
+    .eats-container {
+        margin: 12% 5% 0 5%;
+    }
+
     .eats-content {
         height: 70%;
         margin-top: 10%;
@@ -2332,8 +2382,8 @@ a {
         font-size: 18px;
     }
 
-    .eats-containe {
-        margin: 9% 5% 0 5%
+    .eats-container {
+        margin: 7% 5% 0 5%
     }
 
     .eats-content {
@@ -2413,6 +2463,10 @@ a {
         padding: 30px;
     }
 
+    .emptyRestaurantContainer {
+        font-size: 22px;
+    }
+
     .addressSection {
         height: 30%;
         font-size: 24px;
@@ -2431,7 +2485,7 @@ a {
     }
 
     .eats-container {
-        margin: 9% 8% 0 8%;
+        margin: 6% 8% 0 8%;
     }
 
     .eats-content {
@@ -2510,6 +2564,10 @@ a {
         font-size: 22px;
     }
 
+    .emptyRestaurantContainer {
+        font-size: 30px;
+    }
+
     .addressSection {
         height: 30%;
         font-size: 30px;
@@ -2528,7 +2586,7 @@ a {
     }
 
     .eats-container {
-        margin: 9% 10% 0 10%;
+        margin: 5% 10% 0 10%;
     }
 
     .eats-content {
@@ -2610,6 +2668,11 @@ a {
     .pageThree {
         height: calc(100vh - 80px)
     }
+   
+    .emptyRestaurantContainer {
+        font-size: 35px;
+    }
+
 
     .eats-container {
         margin: 6% 5% 0 5%;
@@ -2731,7 +2794,7 @@ a {
     }
 
     .eats-container {
-        margin: 4% 10% 0 10%;
+        margin: 3% 10% 0 10%;
     }
 
     .eats-content {
