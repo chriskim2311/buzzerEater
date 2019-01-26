@@ -666,6 +666,8 @@ function openPageNBA() {
     $(".pageTwo").toggle(".display");
 }
 function openPageNBA1() {
+    $("#map").empty();
+    $(".restaurantSection").empty();
     $(".pageTwo").toggle(".display");
     $(".pageThree").toggle(".display");
 }
@@ -681,9 +683,10 @@ function openPageEats1() {
 }
 
 function openPageHome2() {
+    $("#map").empty();
+    $(".restaurantSection").empty();
     $(".navbar").toggle(".display");
     $(".pageOne").toggle(".display");
-
     $(".pageThree").toggle(".display");
 }
 function openPageHome3() {
