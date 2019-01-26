@@ -706,7 +706,6 @@ function openPageNBA() {
     $(".pageTwo").toggle(".display");
 }
 function openPageNBA1() {
-
     if($(".emptyRestaurantContainer").css('display') == 'block'){
         $(".emptyRestaurantContainer").toggle(".display");
     }
