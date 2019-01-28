@@ -1530,7 +1530,7 @@ a {
     left: 0px;
 }
 
-.ball-icon {
+.firstBall {
     display:none;
 }
 }
@@ -1581,6 +1581,7 @@ a {
     .team-detail {
         padding:0px
     }
+
 }
 /* Galaxy S5 */
 @media  (min-width: 360px) { 
