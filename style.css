@@ -175,9 +175,9 @@ body {
 
 .restaurants {
     height: 48%;
-    /* width: 50%; */
     display: inline-block;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
     margin-top: 5%;
     padding: 0 1%;
