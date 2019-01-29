@@ -97,24 +97,6 @@ body {
     font-size: 35px;
 }
 
-.pageTwo {
-    height: calc(90vh - 60px);
-    display: inline-block;
-    display: none;
-    margin: 5% 5% 0 5%;
-    background-image: url("images/court1.jpg");
-    background-position-x: center;
-    background-repeat: no-repeat;
-}
-
-.pageThree {
-    height: calc(100vh - 50px);
-    display: inline-block;
-    display: none;
-    background-image: url("images/court1.jpg");
-    background-position-x: center;
-    background-repeat: no-repeat;
-}
 
 .addressSection {
     height: 15%;
@@ -2819,3 +2801,37 @@ a {
         height: 25%;
     }
 }
+
+
+.pageTwo {
+    background-image: url("images/court1.jpg");
+    background-position-x: center;
+    background-repeat: no-repeat;
+    height: calc(100vh - 126px);
+    margin-top: 60px;
+    background-size: cover;
+    background-position: 50% 100%;
+    display: none;
+    /* background-size: cover; */
+}
+
+.pageThree {
+    /* height: calc(100vh - 50px);
+    display: inline-block;
+    display: none;
+    background-image: url("images/court1.jpg");
+    background-position-x: center;
+    background-repeat: no-repeat; */
+    /* margin: 5% 5% 0 5%; */
+    /* overflow: hidden */
+    background-image: url("images/court1.jpg");
+    background-position-x: center;
+    background-repeat: no-repeat;
+    height: calc(100vh - 126px);
+    margin-top: 60px;
+    background-size: cover;
+    background-position: 50% 100%;
+    display: none;
+
+}
+
