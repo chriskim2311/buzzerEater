@@ -97,6 +97,7 @@ body {
     font-size: 35px;
 }
 
+
 .pageTwo {
     background-image: url('images/court1.jpg');
     background-position-x: center;
@@ -119,6 +120,7 @@ body {
     background-position: 50% 100%;
     display: none;
 }
+
 
 .addressSection {
     height: 15%;
@@ -557,7 +559,6 @@ a {
     position: absolute;
     top: 0px;
     left: -190px;
-    /* transform: rotate(40deg); */
     -webkit-animation: beer 10s 1;
 }
 
@@ -967,7 +968,6 @@ a {
 #allWrapper {
     position: relative;
     height: 200px;
-    /*background: url("http://svgur.com/i/5Y.svg");*/
     background-size: cover;
 }
 
@@ -1178,7 +1178,6 @@ a {
     font-size: 1rem;
     display: inline-block;
     bottom: 0;
-    /* position: fixed; */
     margin: 0;
 }
 
@@ -1236,11 +1235,6 @@ a {
     overflow: auto;
     /*overflow-x: hidden;*/
 }
-
-/* ::-webkit-scrollbar {
-    background: transparent;
-} */
-
 
 .tweetsFeed a{
     color: lightskyblue;
@@ -1326,6 +1320,7 @@ a {
     letter-spacing: 4px;
 }
 
+
 #nav-title {
     font-family: 'futura';
     color: white;
@@ -1367,8 +1362,6 @@ a {
   font-size: 1.6em;
   font-weight: bold;
   margin: 0 auto;
-  /* margin: 1em auto; */
-  /* padding: 2em 4em; */
   position: relative;
   text-transform: uppercase;
   position: fixed;
@@ -1539,7 +1532,8 @@ a {
     left: 0px;
 }
 
-.pageOne-ball {
+
+.firstBall {
     display:none;
 }
 }
@@ -1571,11 +1565,16 @@ a {
     }
 
     .pageTwo {
+        height: calc(90vh - 60px);
+        display: inline-block;
+        display: none;
         margin: 20% 5% 0 5%;
     }
     .gameSection {
         font-family: "Montserrat", "Arial";
         color: white;
+        height: 75%;
+
         width: 100%;
         font-size: 10px;
     }
@@ -1597,9 +1596,8 @@ a {
           font-size: 14px;
       }
 
+
 }
-
-
 /* Galaxy S5 */
 @media  (min-width: 360px) { 
 
@@ -1622,12 +1620,19 @@ a {
     }
 
     .pageTwo {
+
+        height: calc(90vh - 60px);
+        display: inline-block;
+        display: none;
+
         margin: 20% 5% 0 5%;
     }
 
     .gameSection {
         font-family: "Montserrat", "Arial";
         color: white;
+        height: 90%;
+
         width: 100%;
         font-size: 10px;
     }
@@ -2575,6 +2580,10 @@ a {
     }
 
     .pageTwo {
+        height: calc(90vh - 60px);
+        display: inline-block;
+        display: none;
+
         margin: 8% 5% 0 5%;
     }
 
@@ -2737,8 +2746,26 @@ a {
 
 
 
+.pageTwo {
+    background-image: url("images/court1.jpg");
+    background-position-x: center;
+    background-repeat: no-repeat;
+    height: calc(100vh - 126px);
+    margin-top: 60px;
+    background-size: cover;
+    background-position: 50% 100%;
+    display: none;
+    /* background-size: cover; */
+}
+
+
+
+
 .team-detail .team-nameandscore {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
+
+
+
