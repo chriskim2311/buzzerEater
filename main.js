@@ -692,7 +692,7 @@ function generateScoreboard(teamOne, teamTwo, gameInfo) {
     }
 
     else {
-        var teamScore2 = $("<div>").addClass("homeTeamScore").text(teamOne.score);
+        var teamScore2 = $("<div>").addClass("awayTeamScore").text(teamTwo.score);
     }
 
     var space = $("<div>").addClass('space');
