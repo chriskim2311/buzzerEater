@@ -424,6 +424,31 @@ function getNBAData() {
     var day = currentTime.getDate();
     var year = currentTime.getFullYear();
     // console.log(month, day, year)
+
+
+
+    if (day < 10 && month <10) {
+        var date = `${year}0${month}0${day}`
+        var nbaData = {
+            "async": true,
+            "crossDomain": true,
+            'dataType': 'json',
+            "url": `https://place.kim-chris.com/nba/${date}`,
+            "method": "GET",
+        };
+
+        $.ajax(nbaData).done(function (response) {
+        
+            var nbaData = response.data;
+            console.log(nbaData)
+            updateNBAScores(nbaData);
+            getNBADataInterval();
+            
+
+        })
+        return
+
+    }
     if (day < 10) {
         var date = `${year}${month}0${day}`
         var nbaData = {
@@ -435,7 +460,9 @@ function getNBAData() {
         };
 
         $.ajax(nbaData).done(function (response) {
+        
             var nbaData = response.data;
+            console.log(nbaData)
             updateNBAScores(nbaData);
             getNBADataInterval();
 
@@ -489,6 +516,27 @@ function getNBADataInterval() {
     var year = currentTime.getFullYear();
 
     setInterval(function () {
+        if (day < 10 && month <10) {
+            var date = `${year}0${month}0${day}`
+            var nbaData = {
+                "async": true,
+                "crossDomain": true,
+                'dataType': 'json',
+                "url": `https://place.kim-chris.com/nba/${date}`,
+                "method": "GET",
+            };
+
+            $.ajax(nbaData).done(function (response) {
+                var nbaData = response.data;
+                updateNBAScores(nbaData);
+
+                
+            })
+            return
+        }
+
+
+
         if (day < 10) {
             var date = `${year}${month}0${day}`
             var nbaData = {
