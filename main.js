@@ -423,7 +423,7 @@ function getNBAData() {
     var month = currentTime.getMonth() + 1;
     var day = currentTime.getDate();
     var year = currentTime.getFullYear();
-    // console.log(month, day, year)
+    console.log(month, day, year)
 
 
 
@@ -442,7 +442,7 @@ function getNBAData() {
             var nbaData = response.data;
             console.log(nbaData)
             updateNBAScores(nbaData);
-            getNBADataInterval();
+            // getNBADataInterval();
             
 
         })
@@ -488,7 +488,7 @@ function getNBAData() {
 
     }
     else {
-        var date = `${year}0${month}${day}`
+        var date = `${year}${month}${day}`
         var nbaData = {
             "url": `https://place.kim-chris.com/nba/${date}`,
             "method": "GET",
